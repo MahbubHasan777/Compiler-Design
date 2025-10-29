@@ -16,7 +16,7 @@ bool task3beta()
 {
     string str;
     cout << "Write the comment: ";
-    cin >> str;
+    getline(cin, str);
     bool check = false;
     int len = str.size();
     cout << str[len];

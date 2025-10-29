@@ -15,7 +15,7 @@ bool task3()
 {
     string str;
     cout << "Write the comment: ";
-    cin >> str;
+    getline(cin, str);
     int len = str.size();
     cout << str[len];
     if (str[0] == '/' && str[1] == '/')

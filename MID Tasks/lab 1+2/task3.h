@@ -9,32 +9,75 @@ Comment */
 #ifndef TASK3_H
 #define TASK3_H
 #include <iostream>
+#include <string>
 using namespace std;
 
-bool task3()
+int countNewLines(string text)
 {
-    string str;
-    cout << "Write the comment: ";
-    getline(cin >> ws, str);
-    int len = str.size();
-    cout << str[len];
-    if (str[0] == '/' && str[1] == '/')
-    {
-        for (int i = 2; i < len; i++)
-        {
+    int count = 0;
 
-            cout << str[i];
-        }
-        cout << endl;
+    for (char c : text)
+    {
+        if (c == '\n')
+            count++;
     }
-    else if ((str[0] == '/' && str[1] == '*' && str[len - 2] == '*' && str[len - 1] == '/'))
+
+    return count;
+}
+
+void task3()
+{
+    string str = "";
+
+    string lineInput;
+
+    cout << "Enter Your comment: " << endl;
+    cin.ignore();
+    while (true)
     {
-        for (int i = 2; i < len - 2; i++)
+        getline(cin, lineInput);
+        if (lineInput.empty())
+            break;
+        str += lineInput + "\n";
+    }
+
+    int loc = countNewLines(str);
+
+    bool isSingleComment = false;
+    bool isDoubleComment = false;
+
+    if (loc == 1)
+    {
+        if (str.size() >= 2 && str[0] == '/' && str[1] == '/')
         {
 
-            cout << str[i];
+            cout << "Singleline Comment detected." << endl;
+
+            cout << "The comment is:" << endl;
+
+            cout << str.substr(2) << endl;
+
+            isSingleComment = true;
         }
-        cout << endl;
+    }
+    if (loc >= 1)
+    {
+        if (str.size() >= 5 && str[0] == '/' && str[1] == '*' && str[str.size() - 3] == '*' && str[str.size() - 2] == '/')
+        {
+
+            cout << "Multiline Comment detected." << endl;
+
+            cout << "Comment is:" << endl;
+
+            cout << str.substr(2, str.size() - 5) << endl;
+
+            isDoubleComment = true;
+        }
+    }
+
+    if (!isSingleComment && !isDoubleComment)
+    {
+        cout << "No comment detected\n" << endl;
     }
 }
 #endif

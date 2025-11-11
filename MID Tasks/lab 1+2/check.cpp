@@ -1,40 +1,33 @@
-#ifndef TASK3BETA_H
-#define TASK3BETA_H
-
-#include "task3.h"
 #include <iostream>
-#include <string>
-#include <fstream>
 using namespace std;
 
-void task3beta()
+int countNewLines(string text)
 {
-    string filename;
+    int count = 0;
+
+    for (char c : text)
+    {
+        if (c == '\n')
+            count++;
+    }
+
+    return count;
+}
+
+void task3()
+{
     string str = "";
+
     string lineInput;
 
-    cout << "Enter the filename: ";
-    cin >> filename;
-
-    ifstream file(filename);
-    
-    if (!file.is_open())
+    cout << "Enter Your comment: " << endl;
+    cin.ignore();
+    while (true)
     {
-        cout << "Error: Could not open file '" << filename << "'" << endl;
-        return;
-    }
-
-    while (getline(file, lineInput))
-    {
+        getline(cin, lineInput);
+        if (lineInput.empty())
+            break;
         str += lineInput + "\n";
-    }
-    
-    file.close();
-
-    if (str.empty())
-    {
-        cout << "File is empty!" << endl;
-        return;
     }
 
     int loc = countNewLines(str);
@@ -46,20 +39,27 @@ void task3beta()
     {
         if (str.size() >= 2 && str[0] == '/' && str[1] == '/')
         {
+
             cout << "Singleline Comment detected." << endl;
+
             cout << "The comment is:" << endl;
+
             cout << str.substr(2) << endl;
+
             isSingleComment = true;
         }
     }
-    
     if (loc >= 1)
     {
         if (str.size() >= 5 && str[0] == '/' && str[1] == '*' && str[str.size() - 3] == '*' && str[str.size() - 2] == '/')
         {
+
             cout << "Multiline Comment detected." << endl;
+
             cout << "Comment is:" << endl;
+
             cout << str.substr(2, str.size() - 5) << endl;
+
             isDoubleComment = true;
         }
     }
@@ -69,4 +69,8 @@ void task3beta()
         cout << "No comment detected\n" << endl;
     }
 }
-#endif
+
+int main()
+{
+    task3();
+}

@@ -13,12 +13,12 @@ using namespace std;
 
 void task4()
 {
-    string s;
+    string str;
     cout << "Enter indentifier name: ";
-    cin >> s;
+    cin >> str;
     bool isValid = true;
 
-    switch (s[0]) {
+    switch (str[0]) {
         case 'A'...'Z':
         case 'a'...'z':
         case '_':
@@ -27,8 +27,8 @@ void task4()
             isValid = false;
     }
 
-    for (int i = 1; i < s.length() && isValid; i++) {
-        switch (s[i]) {
+    for (int i = 1; i < str.length() && isValid; i++) {
+        switch (str[i]) {
             case 'A'...'Z':
             case 'a'...'z':
             case '0'...'9':
@@ -40,9 +40,9 @@ void task4()
     }
 
     if (isValid)
-        cout << s << " is a valid identifier." << endl;
+        cout << str << " is a valid identifier." << endl;
     else
-        cout << s << " is NOT a valid identifier." << endl;
+        cout << str << " is NOT a valid identifier." << endl;
 }
 
 #endif

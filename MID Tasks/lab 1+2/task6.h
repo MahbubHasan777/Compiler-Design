@@ -22,9 +22,9 @@ int task6()
     int max = arr[0];
     for (int i = 0; i < size; i++)
     {
-        if (min < arr[i])
+        if (min > arr[i])
             min = arr[i];
-        if (max > arr[i])
+        if (max < arr[i])
             max = arr[i];
     }
     cout << "Max: " << max << endl;

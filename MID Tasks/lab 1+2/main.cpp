@@ -41,12 +41,12 @@ void repeatTask(int input)
     case 10:
         cout << "1: Check numerical or, not" << endl;
         cout << "2: Determine Operator (+, -, *, /, %, =)" << endl;
-        cout << "3: Determine comment or not." << endl;
+        cout << "3: Print comment if valid (Using Input)." << endl;
         cout << "4: Check identifer or not." << endl;
         cout << "5: Find average of an array." << endl;
         cout << "6: Find minimum and maximum value of an array" << endl;
         cout << "7: Concat firstname and lastname." << endl;
-        cout << "8: (Extra)Print comment if valid." << endl;
+        cout << "8: Print comment if valid (Using TextFile)." << endl;
         cout << "9: Exit." << endl;
         cout << "10: Print Option." << endl;
         break;
@@ -60,12 +60,12 @@ int main()
 {
     cout << "1: Check numerical or, not" << endl;
     cout << "2: Determine Operator (+, -, *, /, %, =)" << endl;
-    cout << "3: Determine comment or not." << endl;
+    cout << "3: Print comment if valid (Using Input)." << endl;
     cout << "4: Check identifer or not." << endl;
     cout << "5: Find average of an array." << endl;
     cout << "6: Find minimum and maximum value of an array" << endl;
     cout << "7: Concat firstname and lastname." << endl;
-    cout << "8: (Extra)Print comment if valid." << endl;
+    cout << "8: Print comment if valid (Using TextFile)." << endl;
     cout << "9: Exit." << endl;
     cout << "10: Print Option." << endl;
     while (1)
@@ -73,7 +73,7 @@ int main()
         cout << endl;
         int input;
         cout << "\nEnter task number (10 for printing options): ";
-        if (!(cin >> input)) // check if input failed
+        if (!(cin >> input))
         {
             cout << "Invalid input! Please enter a number." << endl;
             cin.clear();

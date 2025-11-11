@@ -12,15 +12,52 @@ void task1()
     string str;
     cout << "Write the value: ";
     cin >> str;
+
+    bool isFloat = false;
     bool isNumber = true;
-    for (int i = 0; i < str.size(); i++)
+
+    if (!(
+            str[0] == '-' ||
+            str[0] == '+' ||
+            (str[0] >= '0' && str[0] <= '9')
+
+                ))
     {
-        if (!(str[i] >= '0' && str[i] <= '9'))
-        {
-            isNumber = false;
-        }
+        cout << "Not Numeric" << endl;
+        return;
     }
-    cout << (isNumber ? "numeric constant" : "not numeric") << endl;
+
+    for (int i = 1; i < str.size(); i++)
+    {
+        if ((str[i] >= '0' && str[i] <= '9'))
+        {
+            continue;
+        }
+        if (str[i] == '.')
+        {
+            if (!isFloat)
+            {
+                isFloat = true;
+                continue;
+            }
+            else
+            {
+                cout << "Not Numeric." << endl;
+                isNumber = false;
+                break;
+            }
+        }
+
+        cout << "Not Numeric" << endl;
+        isNumber = false;
+        break;
+    }
+
+    if (isNumber)
+    {
+        cout << "Numeric" << endl;
+    }
+    return;
 }
 
 #endif

@@ -1,0 +1,5 @@
+isIndentifier
+variable123
+_myVariable
+123variable
+my variable

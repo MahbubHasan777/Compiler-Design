@@ -1,0 +1,11 @@
+int main()
+{
+    int a = 50+60;
+    int ab = 100+50;
+
+    if(a > ab){
+        print(a);
+    }else{
+        print(ab);
+    }
+}

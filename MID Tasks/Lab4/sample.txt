@@ -1,7 +1,7 @@
 int main()
 {
-    int a = 50+60;
-    int ab = 100+50;
+    int a = 60;
+    int ab = a+50;
 
     if(a > ab){
         print(a);

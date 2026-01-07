@@ -29,7 +29,7 @@ string keywords[] = {
     "return",
     "if",
     "else",
-    "else if"
+    "elseif"
     "while",
     "for",
     "continue",
@@ -102,7 +102,7 @@ void LexicalAnalyzer(string str)
             string op(1, str[i]);
             tokenPair.push_back(TokenPair(op, "operator"));
         }
-        else if(str[i] == ';' || str[i] == '{' || str[i] == '}' || str[i] == '(' || str[i] == ')' || str[i] == ',')
+        else if(str[i] == ';' || str[i] == '{' || str[i] == '}' || str[i] == '(' || str[i] == ')' || str[i] == ',' || str[i] == '>' || str[i] == '<')
         {
             string op(1, str[i]);
             tokenPair.push_back(TokenPair(op, "punctuation"));
@@ -114,6 +114,7 @@ void LexicalAnalyzer(string str)
         cout << t.token << ": " << t.type << endl;
     }
 }
+
 
 int main()
 {

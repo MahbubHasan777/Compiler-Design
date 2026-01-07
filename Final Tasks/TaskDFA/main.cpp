@@ -14,6 +14,7 @@ bool computeDFA()
 
     for (int i = 0; i < s.size(); i++)
     {
+        cout << state << " ";
         if (s[i] == 'a')
         {
             if (state == "QA" || state == "QC")
@@ -39,6 +40,7 @@ bool computeDFA()
             return false;
         }
     }
+    cout << state << "\t";
 
     if (state == "QB" || state == "QD" || state == "QG" || state == "QH")
         return true;
@@ -53,6 +55,6 @@ int main()
     {
         bool isValid = computeDFA();
 
-        cout << ((isValid) ? "String is valid" : "String is not valid\n") << endl;
+        cout << ((isValid) ? "Accepted" : "Not Accepted\n") << endl;
     }
 }
